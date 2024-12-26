@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function GeneralInformation() {
     return (
-        <div className="block-page-right flex flex-col gap-5 w-3/4 p-5 pl-20 pr-20 rounded-xl bg-white">
+        <div className="block-page-right flex flex-col gap-5 w-3/4 p-5 pl-20 pr-20 rounded-xl hover:shadow-2xl transition duration-500 bg-white max-sm:w-full max-sm:pl-5 max-sm:pr-5">
             <div className="introduce flex flex-col gap-5 h-2/6">
                 <div className="introduce-block flex items-center gap-7">
                     <span className="introduce-title font-bold text-4xl 2xl:text-5xl text-gray-700">ABOUT ME</span>
-                    <div className="line w-2/5 h-1 rounded-full bg-gradient-to-r from-teal-400 to-blue-500"></div>
+                    <div className="line w-2/5 h-1 rounded-full bg-gradient-to-r from-teal-400 to-blue-500 max-sm:hidden"></div>
                 </div>
                 <p className="introduce-par 2xl:text-2xl text-gray-700">
                     Hello! Welcome to my personal introduction page. I am a Front-end Developer, a graduate of the
@@ -18,10 +18,10 @@ export default function GeneralInformation() {
                     to improve my skills and stay updated with emerging trends in the industry.
                 </p>
             </div>
-            <div className="to-do flex flex-col gap-5 w-full h-4/6">
+            <div className="to-do flex flex-col gap-5 w-full h-4/6 max-sm:h-full">
                 <span className="to-do-title font-bold text-4xl 2xl:text-5xl text-gray-700">WHAT I DO!</span>
-                <div className="to-do-items w-full h-5/6 grid grid-cols-2 gap-5">
-                    <div className="td-item w-full h-full rounded-lg bg-teal-100 p-2 pl-5 pr-5">
+                <div className="to-do-items w-full h-5/6 grid grid-cols-2 gap-5 max-sm:flex max-sm:flex-col">
+                    <div className="td-item w-full h-full rounded-lg bg-teal-100 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300">
                         <div className="item flex items-center gap-3">
                             <FontAwesomeIcon icon={faCode} className="w-5 h-5 text-blue-500" />
                             <span className="item-title font-bold text-lg 2xl:text-2xl">Web Development</span>
@@ -32,7 +32,7 @@ export default function GeneralInformation() {
                             user-friendly websites.
                         </p>
                     </div>
-                    <div className="td-item w-full h-full rounded-lg bg-slate-200 p-2 pl-5 pr-5">
+                    <div className="td-item w-full h-full rounded-lg bg-slate-200 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300">
                         <div className="item flex items-center gap-3">
                             <FontAwesomeIcon icon={faInstagram} className="w-5 h-5 text-teal-500" />
                             <span className="item-title font-bold text-lg 2xl:text-2xl">Mobile App Development</span>
@@ -43,7 +43,7 @@ export default function GeneralInformation() {
                             user-friendly experiences.
                         </p>
                     </div>
-                    <div className="td-item w-full h-full rounded-lg bg-slate-200 p-2 pl-5 pr-5">
+                    <div className="td-item w-full h-full rounded-lg bg-slate-200 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300">
                         <div className="item flex items-center gap-3">
                             <FontAwesomeIcon icon={faWandMagicSparkles} className="w-5 h-5 text-sky-500" />
                             <span className="item-title font-bold text-lg 2xl:text-2xl">Design & Animation</span>
@@ -54,7 +54,7 @@ export default function GeneralInformation() {
                             enhance the user experience on the website.
                         </p>
                     </div>
-                    <div className="td-item w-full h-full rounded-lg bg-blue-100 p-2 pl-5 pr-5">
+                    <div className="td-item w-full h-full rounded-lg bg-blue-100 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300">
                         <div className="item flex items-center gap-3">
                             <FontAwesomeIcon icon={faStar} className="w-5 h-5 text-cyan-600" />
                             <span className="item-title font-bold text-lg 2xl:text-2xl">Always learning</span>
