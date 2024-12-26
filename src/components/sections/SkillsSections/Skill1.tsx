@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Skill1() {
     return (
-        <div className="skill-1-wrapper flex flex-col gap-6 w-full h-5/6 bg-cyan-100 rounded-xl p-10 pt-8 pb-8 2xl:gap-14 2xl:pl-20 2xl:pr-20 hover:shadow-2xl transition duration-500 max-sm:pl-20 max-sm:pr-20">
+        <div className="skill-1-wrapper flex flex-col gap-6 w-full h-5/6 bg-cyan-100 rounded-xl p-10 pt-8 pb-8 2xl:gap-14 2xl:pl-20 2xl:pr-20 hover:shadow-2xl transition duration-500 max-sm:pl-20 max-sm:pr-20 dark:bg-neutral-700">
             <div className="skill-item flex gap-5">
                 <div className="skill-item-1 flex flex-col gap-5 2xl:gap-6">
-                    <span className="font-bold text-xl text-gray-700">Operating Systems</span>
+                    <span className="font-bold text-xl text-gray-700 dark:text-gray-300">Operating Systems</span>
                     <ul className="flex flex-col gap-2 2xl:gap-4">
                         <li className="flex gap-5 items-center">
                             <FontAwesomeIcon icon={faWindows} className="w-7 h-7 text-blue-500" /> Windows
@@ -21,7 +21,7 @@ export default function Skill1() {
 
             <div className="skill-item flex gap-5">
                 <div className="skill-item-2 flex flex-col gap-5 2xl:gap-6">
-                    <span className="font-bold text-xl text-gray-700">Tools</span>
+                    <span className="font-bold text-xl text-gray-700 dark:text-gray-300">Tools</span>
                     <ul className="flex flex-col gap-2 2xl:gap-4">
                         <li className="flex gap-5 items-center">
                             <FontAwesomeIcon icon={faTerminal} className="w-7 h-7 text-blue-500" /> VS Code
@@ -38,7 +38,7 @@ export default function Skill1() {
 
             <div className="skill-item flex gap-5">
                 <div className="skill-item-3 flex flex-col gap-5">
-                    <span className="font-bold text-xl text-gray-700">Database</span>
+                    <span className="font-bold text-xl text-gray-700 dark:text-gray-300">Database</span>
                     <ul className="flex flex-col gap-2">
                         <li className="flex gap-5 items-center">
                             <FontAwesomeIcon icon={faStripeS} className="w-7 h-7 text-red-500" /> SQL Server

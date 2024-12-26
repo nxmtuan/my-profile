@@ -54,20 +54,26 @@ export default function NavBar() {
     }, []);
 
     return (
-        <div className="navBar fixed top-2/4 -translate-y-1/2 right-0 flex flex-col gap-3 items-center h-auto w-20 p-2 z-10 bg-white rounded-xl shadow-2xl border-solid border-2 border-slate-200 max-sm:top-10 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-fit max-sm:flex-row">
+        <div className="navBar fixed top-2/4 -translate-y-1/2 right-0 flex flex-col gap-3 items-center h-auto w-20 p-2 z-10 bg-white rounded-xl shadow-2xl border-solid border-2 border-slate-200 max-sm:top-10 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-fit max-sm:flex-row dark:bg-neutral-700 dark:border-neutral-700">
             {navItems.map((item) => (
                 <div
                     key={item.id}
                     className={`nav-item flex flex-col justify-center items-center gap-1 w-16 h-16 rounded-lg cursor-pointer ${
-                        active === item.id ? 'bg-gradient-to-r from-teal-400 to-blue-500' : 'bg-slate-200'
+                        active === item.id
+                            ? 'bg-gradient-to-r from-teal-400 to-blue-500'
+                            : 'bg-slate-200 dark:bg-neutral-600'
                     }`}
                     onClick={() => handleScroll(item.id)}
                 >
                     <FontAwesomeIcon
                         icon={item.icon}
-                        className={`w-5 h-5 ${active === item.id ? 'text-white' : 'text-slate-600'}`}
+                        className={`w-5 h-5 ${active === item.id ? 'text-white' : 'text-slate-600 dark:text-gray-300'}`}
                     />
-                    <div className={`item-label text-xs ${active === item.id ? 'text-white' : 'text-slate-600'}`}>
+                    <div
+                        className={`item-label text-xs ${
+                            active === item.id ? 'text-white' : 'text-slate-600 dark:text-gray-300'
+                        }`}
+                    >
                         {item.label}
                     </div>
                 </div>

@@ -8,7 +8,7 @@ export default function Skills() {
             <div className="container flex h-screen justify-center items-center max-sm:h-fit">
                 <div className="skills-block flex justify-center w-full h-5/6 gap-5 max-sm:flex-col">
                     <div className="flex flex-col gap-5 w-1/4 max-sm:w-full">
-                        <div className="flex w-full h-1/6 font-bold text-3xl text-gray-700 bg-white rounded-xl p-7 items-center justify-center select-none 2xl:text-4xl ">
+                        <div className="flex w-full h-1/6 font-bold text-3xl text-gray-700 bg-white rounded-xl p-7 items-center justify-center select-none 2xl:text-4xl dark:bg-neutral-700 dark:text-gray-300">
                             MY SKILLS
                         </div>
                         <Skill1 />
@@ -16,7 +16,7 @@ export default function Skills() {
                     <div className="flex flex-col gap-5 w-3/4 h-full max-sm:w-full">
                         <div className="flex gap-5 h-1/2">
                             <Skill2 />
-                            <div className="w-1/2 h-full 2xl:text-xl bg-white rounded-xl p-10 hover:shadow-2xl transition duration-500 max-sm:hidden">
+                            <div className="w-1/2 h-full 2xl:text-xl bg-white rounded-xl p-10 hover:shadow-2xl transition duration-500 max-sm:hidden dark:bg-neutral-700 dark:text-gray-300">
                                 These skills I have learned over four years of university and several months of
                                 internships at companies. To provide the best user experience, I constantly update
                                 myself with knowledge of new technologies and utilize tools that support interface

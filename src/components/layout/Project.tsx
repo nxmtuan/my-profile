@@ -15,7 +15,7 @@ export default function Project() {
                     <div className="project-block-line flex items-center justify-center w-2/12 h-full font-bold text-3xl 2xl:text-4xl text-white p-7 bg-gradient-to-r from-teal-400 to-blue-500 rounded-xl hover:shadow-2xl transition duration-500 select-none">
                         <FontAwesomeIcon icon={faBolt} className="w-10 h-10" />
                     </div>
-                    <div className="project-block-title flex justify-center items-center font-bold text-3xl 2xl:text-4xl text-gray-700 p-7 w-10/12 h-full rounded-xl bg-white">
+                    <div className="project-block-title flex justify-center items-center font-bold text-3xl 2xl:text-4xl text-gray-700 p-7 w-10/12 h-full rounded-xl bg-white dark:bg-neutral-700 dark:text-gray-300">
                         MY PROJECTS
                     </div>
                 </div>
