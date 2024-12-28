@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Skill2() {
     return (
-        <div className="skill-2-wrapper flex flex-col gap-10 w-1/2 h-full bg-blue-100 rounded-xl p-7 pl-20 pr-20 hover:shadow-2xl transition duration-500 max-sm:w-full dark:bg-neutral-700">
+        <div className="skill-2-wrapper flex flex-col gap-10 w-1/2 h-full bg-blue-100 rounded-xl p-7 pl-10 pr-10 hover:shadow-2xl transition duration-500 max-sm:w-full dark:bg-neutral-700">
             <div className="skill-item flex gap-5">
                 <div className="skill-item-4 flex flex-col gap-5">
                     <span className="font-bold text-xl text-gray-700 dark:text-gray-300">Basic Technical</span>

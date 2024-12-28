@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Nunito } from 'next/font/google';
+import { Geist, Geist_Mono, Nunito, Playwrite_AU_VIC } from 'next/font/google';
 import './globals.css';
 import Home from '@/components/layout/Home';
 import Skills from '@/components/layout/Skills';
@@ -10,6 +10,11 @@ const nunito = Nunito({
     variable: '--font-nunito',
     subsets: ['latin'],
     weight: ['300', '400', '500', '600', '700'],
+});
+
+const playwriteAUVIC = Playwrite_AU_VIC({
+    variable: '--font-playwrite',
+    weight: ['400'],
 });
 
 const geistSans = Geist({
@@ -35,7 +40,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} antialiased`}>
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} ${playwriteAUVIC.variable} antialiased`}
+            >
                 <Home />
                 <Skills />
                 <Work />

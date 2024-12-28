@@ -13,7 +13,8 @@ export default {
                 foreground: 'var(--foreground)',
             },
             fontFamily: {
-                nunito: ['Nunito', 'sans-serif'],
+                nunito: ['--font-nunito'],
+                playwrite: ['var(--font-playwrite)'],
             },
         },
     },

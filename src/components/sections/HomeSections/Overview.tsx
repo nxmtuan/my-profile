@@ -16,22 +16,26 @@ export default function Overview() {
                 </span>
                 <span className="title-position font-light text-sm text-slate-400">Front-end Developer</span>
                 <div className="social flex justify-center items-center gap-3">
-                    <Link href="https://www.linkedin.com/in/minh-tuan-nguyen-xuan/">
+                    <Link
+                        href="https://www.linkedin.com/in/minh-tuan-nguyen-xuan/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <div className="linkedin flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
                             <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5 text-sky-700" />
                         </div>
                     </Link>
-                    <Link href="https://github.com/tuannguyen2002">
+                    <Link href="https://github.com/tuannguyen2002" target="_blank" rel="noopener noreferrer">
                         <div className="github flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
                             <FontAwesomeIcon icon={faGithub} className="w-5 h-5 text-black" />
                         </div>
                     </Link>
-                    <Link href="https://zalo.me/0359146876">
+                    <Link href="https://zalo.me/0359146876" target="_blank" rel="noopener noreferrer">
                         <div className="zalo flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
                             <FontAwesomeIcon icon={faZ} className="w-5 h-5 text-cyan-500" />
                         </div>
                     </Link>
-                    <Link href="https://t.me/nx_minhtuan">
+                    <Link href="https://t.me/nx_minhtuan" target="_blank" rel="noopener noreferrer">
                         <div className="telegram flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
                             <FontAwesomeIcon icon={faTelegram} className="w-5 h-5 text-sky-600" />
                         </div>
