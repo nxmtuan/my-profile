@@ -8,7 +8,9 @@ export default function Skill3() {
         <div className="skill-3-wrapper flex flex-col gap-10 h-1/2 bg-violet-100 rounded-xl p-9 pl-10 pr-10 hover:shadow-2xl transition duration-500 dark:bg-neutral-700">
             <div className="skill-item flex gap-5">
                 <div className="skill-item-5 flex flex-col gap-5">
-                    <span className="font-bold text-xl text-gray-700 dark:text-gray-300">Advance Technical</span>
+                    <span className="font-bold text-xl text-gray-700 dark:text-gray-300">
+                        Advance Frameworks and skills
+                    </span>
                     <ul className="flex flex-col gap-3 2xl:gap-5">
                         <li className="flex gap-5 items-center">
                             <FontAwesomeIcon icon={faNeos} className="w-7 h-7" /> Next.js
