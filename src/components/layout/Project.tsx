@@ -1,30 +1,149 @@
+'use client';
+import { motion, useSpring } from 'framer-motion';
+import Link from 'next/link';
+import React, { useState, MouseEvent, useRef } from 'react';
+import './layout.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Project1 from '../sections/ProjectSections/Project1';
-import Project2 from '../sections/ProjectSections/Project2';
-import Project3 from '../sections/ProjectSections/Project3';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
+
+interface ImageItem {
+    id: number;
+    label: string;
+    subLabel: string;
+    img: string;
+    link: string;
+    demo: string;
+}
 
 export default function Project() {
+    const [img, setImg] = useState<{ img: string; alt: string; opacity: number }>({
+        img: '',
+        alt: '',
+        opacity: 0,
+    });
+
+    const imageRef = useRef<HTMLImageElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const list: ImageItem[] = [
+        {
+            id: 1,
+            label: 'EBook Online',
+            subLabel: 'Website to read and download ebooks',
+            img: 'ebook.png',
+            link: 'https://ebooks-online-opal.vercel.app/',
+            demo: 'Demo',
+        },
+        {
+            id: 2,
+            label: 'Portfolio',
+            subLabel: 'Website about me',
+            img: 'portfolio.png',
+            link: 'https://profile-sigma-wine.vercel.app/',
+            demo: 'Demo',
+        },
+        {
+            id: 3,
+            label: 'Tiktok UI',
+            subLabel: 'Website reuses tiktok interface',
+            img: 'tiktok.png',
+            link: 'https://tiktok-ui-pearl-iota.vercel.app/',
+            demo: 'Demo',
+        },
+        {
+            id: 4,
+            label: 'Hotel Manager',
+            subLabel: 'Hotel operations management',
+            img: 'hotel.png',
+            link: 'https://github.com/tuannguyen2002/Hotel_Manager',
+            demo: 'Source',
+        },
+    ];
+
+    const spring = {
+        stiffness: 150,
+        damping: 15,
+        mass: 0.1,
+    };
+
+    const imagePos = {
+        x: useSpring(0, spring),
+        y: useSpring(0, spring),
+    };
+
+    const handleMove = (e: MouseEvent<HTMLDivElement>) => {
+        if (!imageRef.current || !containerRef.current) return;
+
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const { clientX, clientY } = e;
+        const relativeX = clientX - containerRect.left;
+        const relativeY = clientY - containerRect.top;
+
+        imagePos.x.set(relativeX - imageRef.current.offsetWidth / 2);
+        imagePos.y.set(relativeY - imageRef.current.offsetHeight / 2);
+    };
+
+    const handleImageInteraction = (item: ImageItem, opacity: number) => {
+        setImg({ img: item.img, alt: item.label, opacity });
+    };
+
     return (
-        <div
-            id="projects"
-            className="project-wrapper mt-10 mb-10 h-screen flex justify-center items-center max-sm:ml-3 max-sm:mr-3 max-sm:mt-0 max-sm:h-fit"
+        <section
+            id="project"
+            className="flex flex-col gap-10 justify-center bg-transparent w-full h-auto mt-20 mb-20 p-4 max-sm:mt-10"
         >
-            <div className="container flex flex-col justify-center items-center w-full h-5/6 gap-5">
-                <div className="flex w-full h-fit gap-5">
-                    <div className="project-block-line flex items-center justify-center w-2/12 h-full font-bold text-3xl 2xl:text-4xl text-white p-7 bg-gradient-to-r from-teal-400 to-blue-500 rounded-xl hover:shadow-2xl transition duration-500 select-none">
-                        <FontAwesomeIcon icon={faBolt} className="w-9 h-9 max-sm:w-8 max-sm:h-8" />
-                    </div>
-                    <div className="project-block-title flex justify-center items-center font-bold text-3xl 2xl:text-4xl text-gray-700 p-7 w-10/12 h-full rounded-xl bg-white dark:bg-neutral-700 dark:text-gray-300 max-sm:text-2xl">
-                        MY PROJECTS
-                    </div>
-                </div>
-                <div className="project-block-content grid grid-cols-3 justify-center items-center w-full h-5/6 gap-5 max-sm:grid-cols-1">
-                    <Project1 />
-                    <Project2 />
-                    <Project3 />
-                </div>
+            <div className="group flex justify-center items-center gap-7 h-28 p-2 pl-5 pr-5 mb-10 text-white select-none z-[2] max-sm:w-full max-sm:mb-0">
+                <FontAwesomeIcon
+                    icon={faCode}
+                    className="w-40 h-40 group-hover:scale-125 transition duration-300 max-sm:w-20 max-sm:h-20"
+                />
+                <span className="font-code font-bold text-9xl group-hover:translate-x-3 transition duration-300 max-sm:text-5xl">
+                    PROJECT
+                </span>
             </div>
-        </div>
+            <div
+                ref={containerRef}
+                onMouseMove={handleMove}
+                className="flex flex-col gap-5 justify-center bg-transparent relative w-full h-auto select-none"
+            >
+                {list.map((item) => (
+                    <div
+                        key={item.id}
+                        onMouseEnter={() => handleImageInteraction(item, 1)}
+                        onMouseMove={() => handleImageInteraction(item, 1)}
+                        onMouseLeave={() => handleImageInteraction(item, 0)}
+                        className="w-full py-10 p-10 pl-52 cursor-pointer flex justify-start gap-5 text-white/50 font-code z-[2] hover:text-white hover:translate-x-10 transition-all duration-500 max-sm:px-4 max-sm:py-5"
+                    >
+                        <span className="text-xl font-medium">{item.id}</span>
+                        <div className="flex flex-col gap-2">
+                            <span className="text-8xl font-black max-sm:text-4xl">{item.label}</span>
+                            <div className="flex gap-2 items-center">
+                                <span className="text-base font-light">{item.subLabel}</span> /
+                                <Link
+                                    href={item.link}
+                                    className="text-xl font-bold hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {item.demo}
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+
+                <motion.img
+                    ref={imageRef}
+                    src={img.img}
+                    alt={img.alt}
+                    className="w-[700px] h-[393.75px] bg-slate-300/50 object-cover absolute top-0 left-0 transition-opacity duration-200 ease-in-out pointer-events-none z-[1] max-sm:hidden"
+                    style={{
+                        x: imagePos.x,
+                        y: imagePos.y,
+                        opacity: img.opacity,
+                    }}
+                ></motion.img>
+            </div>
+        </section>
     );
 }

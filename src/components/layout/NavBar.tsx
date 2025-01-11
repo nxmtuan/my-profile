@@ -1,18 +1,17 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { faAddressCard, faCircleUser, faFileCode, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const navItems = [
-    { id: 'overall', icon: faCircleUser, label: 'Overall' },
-    { id: 'skills', icon: faLightbulb, label: 'Skills' },
-    { id: 'works', icon: faAddressCard, label: 'Works' },
-    { id: 'projects', icon: faFileCode, label: 'Projects' },
+    { id: 'home', label: 'Home' },
+    { id: 'role', label: 'About' },
+    { id: 'showcase', label: 'Skill' },
+    { id: 'project', label: 'Project' },
+    { id: 'contact', label: 'Contact' },
 ];
 
 export default function NavBar() {
-    const [active, setActive] = useState<string>('overall');
+    const [active, setActive] = useState<string>('home');
 
     const handleScroll = useCallback((section: string) => {
         setActive(section);
@@ -31,7 +30,7 @@ export default function NavBar() {
         const handleSectionChange = () => {
             clearTimeout(timer);
             timer = setTimeout(() => {
-                let currentSection = 'overall';
+                let currentSection = 'home';
                 navItems.forEach((item) => {
                     const element = document.getElementById(item.id);
                     if (element) {
@@ -54,24 +53,21 @@ export default function NavBar() {
     }, []);
 
     return (
-        <div className="navBar fixed top-2/4 -translate-y-1/2 right-0 flex flex-col gap-3 items-center h-auto w-20 p-2 z-10 bg-white rounded-xl shadow-2xl border-solid border-2 border-slate-200 max-sm:top-10 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-fit max-sm:flex-row dark:bg-neutral-700 dark:border-neutral-700">
+        <div className="navBar fixed top-0 left-0 right-0 flex gap-3 justify-end items-center h-14 w-full p-5 pr-20 z-50 select-none max-sm:w-full max-sm:flex-row max-sm:pr-0 max-sm:justify-center">
+            <div className="author flex absolute left-20 gap-2 h-7 max-sm:hidden">
+                <span className="font-playwrite text-primaryColor">Nguyen Tuan</span>
+            </div>
             {navItems.map((item) => (
                 <div
                     key={item.id}
-                    className={`nav-item flex flex-col justify-center items-center gap-1 w-16 h-16 rounded-lg cursor-pointer ${
-                        active === item.id
-                            ? 'bg-gradient-to-r from-teal-400 to-blue-500'
-                            : 'bg-slate-200 dark:bg-neutral-600'
+                    className={`nav-item flex justify-center items-center gap-1 cursor-pointer hover:border-b-4 hover:border-primaryColor hover:transition-all duration-300 ease-in-out ${
+                        active === item.id ? 'border-b-4 border-primaryColor' : 'border-slate-200/50'
                     }`}
                     onClick={() => handleScroll(item.id)}
                 >
-                    <FontAwesomeIcon
-                        icon={item.icon}
-                        className={`w-5 h-5 ${active === item.id ? 'text-white' : 'text-slate-600 dark:text-gray-300'}`}
-                    />
                     <div
-                        className={`item-label text-xs ${
-                            active === item.id ? 'text-white' : 'text-slate-600 dark:text-gray-300'
+                        className={`font-bold pl-2 pr-2 pb-1 h-full item-label text-base hover:-translate-y-1 transform transition duration-300 ${
+                            active === item.id ? 'text-primaryColor' : 'text-gray-500'
                         }`}
                     >
                         {item.label}

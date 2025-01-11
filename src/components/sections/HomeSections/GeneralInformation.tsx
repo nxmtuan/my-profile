@@ -1,76 +1,65 @@
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { faCode, faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
+'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faAward, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { motion } from 'framer-motion';
+
+interface ImageItem {
+    icon: IconProp;
+    label: string;
+    total: number;
+    subLabel: string;
+}
 
 export default function GeneralInformation() {
+    const list: ImageItem[] = [
+        {
+            icon: faCode,
+            label: 'TOTAL PROJECTS',
+            total: 4,
+            subLabel: 'Completed solutions',
+        },
+        {
+            icon: faAward,
+            label: 'CERTIFICATES',
+            total: 1,
+            subLabel: 'Skills have been validated',
+        },
+        {
+            icon: faBriefcase,
+            label: 'YEARS OF EXPERIENCE',
+            total: 0.5,
+            subLabel: 'Continuous learning journey',
+        },
+    ];
+
     return (
-        <div className="block-page-right flex flex-col gap-5 w-3/4 p-5 pl-20 pr-20 rounded-xl hover:shadow-2xl transition duration-500 bg-white max-sm:w-full max-sm:pl-5 max-sm:pr-5 dark:bg-neutral-700">
-            <div className="introduce flex flex-col gap-5 h-2/6">
-                <div className="introduce-block flex items-center gap-7">
-                    <span className="introduce-title font-bold text-4xl 2xl:text-5xl text-gray-700 dark:text-gray-300">
-                        ABOUT ME
+        <section className="flex flex-col gap-5 justify-center items-end bg-transparent relative w-1/2 h-auto mx-auto p-4 max-sm:w-full max-sm:items-start max-sm:p-0">
+            {list.map((item) => (
+                <motion.div
+                    key={item.label}
+                    className="group w-3/4 py-10 p-10 cursor-pointer text-center flex items-center gap-5 text-neutral-700 border-b-4 border-neutral-700 max-sm:w-full"
+                    style={{
+                        backgroundImage: 'linear-gradient(to bottom, transparent 50%, #404040 50%)',
+                        backgroundSize: '100% 200%',
+                        backgroundPosition: '100% 0%',
+                    }}
+                    initial={{ backgroundPosition: '100% 0%' }}
+                    whileHover={{ backgroundPosition: '0% 100%' }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <div className="w-10 h-10 rounded-full p-2 border-2 border-neutral-700 group-hover:text-white group-hover:border-white hover:transition-all duration-300">
+                        <FontAwesomeIcon icon={item.icon} className="" />
+                    </div>
+                    <div className="flex flex-col gap-2 items-start group-hover:text-white hover:transition-all duration-300">
+                        <span className="text-xl font-bold">{item.label}</span>
+                        <span className="text-xs font-light">{item.subLabel}</span>
+                    </div>
+                    <span className="ml-auto text-4xl font-extrabold group-hover:text-white hover:transition-all duration-300">
+                        {item.total}
                     </span>
-                    <div className="line w-2/5 h-1 rounded-full bg-gradient-to-r from-teal-400 to-blue-500 max-sm:hidden"></div>
-                </div>
-                <p className="introduce-par 2xl:text-2xl text-gray-700 dark:text-gray-300">
-                    Hello! Welcome to my personal introduction page. I am a Front-end Developer, a graduate of the
-                    University of Economics - Technology for Industries with a major in Information Technology. My
-                    journey in the world of web development has been nothing short of exciting, and I constantly strive
-                    to improve my skills and stay updated with emerging trends in the industry.
-                </p>
-            </div>
-            <div className="to-do flex flex-col gap-5 w-full h-4/6 max-sm:h-full">
-                <span className="to-do-title font-bold text-4xl 2xl:text-5xl text-gray-700 dark:text-gray-300">
-                    WHAT I DO!
-                </span>
-                <div className="to-do-items w-full h-5/6 grid grid-cols-2 gap-5 max-sm:flex max-sm:flex-col">
-                    <div className="td-item w-full h-full rounded-lg bg-teal-100 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300 dark:bg-neutral-600">
-                        <div className="item flex items-center gap-3">
-                            <FontAwesomeIcon icon={faCode} className="w-5 h-5 text-blue-500" />
-                            <span className="item-title font-bold text-lg 2xl:text-2xl">Web Development</span>
-                        </div>
-                        <p className="item-par text-sm 2xl:text-base text-gray-700 dark:text-gray-300">
-                            As a developer, I discovered the power of NEXT.js and started using it in my personal
-                            projects. I continuously take on new challenges, leveraging its potential to build
-                            user-friendly websites.
-                        </p>
-                    </div>
-                    <div className="td-item w-full h-full rounded-lg bg-slate-200 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300 dark:bg-neutral-600">
-                        <div className="item flex items-center gap-3">
-                            <FontAwesomeIcon icon={faInstagram} className="w-5 h-5 text-teal-500" />
-                            <span className="item-title font-bold text-lg 2xl:text-2xl">Mobile App Development</span>
-                        </div>
-                        <p className="item-par text-sm 2xl:text-base text-gray-700 dark:text-gray-300">
-                            I build mobile apps with React Native, ensuring smooth performance on iOS & Android. By
-                            leveraging reusable components and powerful libraries, focus on creating functional and
-                            user-friendly experiences.
-                        </p>
-                    </div>
-                    <div className="td-item w-full h-full rounded-lg bg-slate-200 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300 dark:bg-neutral-600">
-                        <div className="item flex items-center gap-3">
-                            <FontAwesomeIcon icon={faWandMagicSparkles} className="w-5 h-5 text-sky-500" />
-                            <span className="item-title font-bold text-lg 2xl:text-2xl">Design & Animation</span>
-                        </div>
-                        <p className="item-par text-sm 2xl:text-base text-gray-700 dark:text-gray-300">
-                            I Always leverage powerful tools to support work. Understand and apply user interface design
-                            principles to projects. Utilize Tailwind CSS & GSAP for interface design & animations that
-                            enhance the user experience on the website.
-                        </p>
-                    </div>
-                    <div className="td-item w-full h-full rounded-lg bg-blue-100 p-2 pl-5 pr-5 transform hover:scale-105 hover:shadow-xl transition duration-300 dark:bg-neutral-600">
-                        <div className="item flex items-center gap-3">
-                            <FontAwesomeIcon icon={faStar} className="w-5 h-5 text-cyan-600" />
-                            <span className="item-title font-bold text-lg 2xl:text-2xl">Always learning</span>
-                        </div>
-                        <p className="item-par text-sm 2xl:text-base text-gray-700 dark:text-gray-300">
-                            I believe in continuous learning to stay ahead in the ever-evolving tech industry. By
-                            exploring new technologies and enhancing my skills, I strive to deliver innovative and
-                            impactful solutions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </motion.div>
+            ))}
+        </section>
     );
 }

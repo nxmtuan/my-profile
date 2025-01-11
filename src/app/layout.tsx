@@ -1,15 +1,24 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Nunito, Playwrite_AU_VIC } from 'next/font/google';
+import { Geist, Geist_Mono, Nunito, Playwrite_AU_VIC, Poppins, Source_Code_Pro } from 'next/font/google';
 import './globals.css';
-import Home from '@/components/layout/Home';
-import Skills from '@/components/layout/Skills';
-import Work from '@/components/layout/Work';
-import Project from '@/components/layout/Project';
+import NavBar from '@/components/layout/NavBar';
 
 const nunito = Nunito({
     variable: '--font-nunito',
     subsets: ['latin'],
     weight: ['300', '400', '500', '600', '700'],
+});
+
+const poppins = Poppins({
+    variable: '--font-poppins',
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
+
+const code = Source_Code_Pro({
+    variable: '--font-code',
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
 
 const playwriteAUVIC = Playwrite_AU_VIC({
@@ -41,12 +50,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} ${playwriteAUVIC.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} ${playwriteAUVIC.variable} ${poppins.variable} ${code.variable} antialiased`}
             >
-                <Home />
-                <Skills />
-                <Work />
-                <Project />
+                <NavBar />
                 {children}
             </body>
         </html>

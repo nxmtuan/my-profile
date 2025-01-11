@@ -1,80 +1,101 @@
-import Image from 'next/image';
-import avatar from '@/assets/avt.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTelegram } from '@fortawesome/free-brands-svg-icons';
-import { faDownload, faLocationDot, faMobileScreen, faZ } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
+import { faEnvelope, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import { useCallback } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
+
+const mainTech = [
+    { id: 1, stack: 'React' },
+    { id: 3, stack: 'Next.js' },
+    { id: 2, stack: 'JavaScript' },
+    { id: 4, stack: 'TypeScript' },
+    { id: 5, stack: 'Tailwind' },
+];
+
+const quickAction = [
+    { id: 'project', action: 'Projects', icon: faPenToSquare },
+    { id: 'contact', action: 'Contact', icon: faEnvelope },
+];
+
+const quickContact = [
+    { id: 1, icon: faLinkedin, link: 'https://www.linkedin.com/in/minh-tuan-nguyen-xuan/' },
+    { id: 2, icon: faGithub, link: 'https://github.com/tuannguyen2002' },
+    { id: 3, icon: faTelegram, link: 'https://t.me/nx_minhtuan' },
+];
 
 export default function Overview() {
+    const handleScroll = useCallback((section: string) => {
+        const element = document.getElementById(section);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    }, []);
+
     return (
-        <div className="block-page-left flex flex-col gap-5 w-1/4 max-sm:w-full h-full p-5 rounded-xl hover:shadow-2xl transition duration-500 bg-white dark:bg-neutral-700">
-            <div className="block-page-left-top h-1/2 flex flex-col justify-center items-center gap-2 overflow-visible">
-                <Image src={avatar} alt="Avatar" className="avatar w-3/5 h-3/5 rounded-xl object-cover" />
-                <span className="title-name font-bold text-xl text-gray-700 dark:text-gray-300">
-                    Nguyen Xuan Minh Tuan
+        <div className="block-page-left flex gap-5 w-1/2 h-full max-sm:w-full">
+            <div className="flex flex-col gap-10 w-full">
+                <div className="flex justify-center items-center gap-3 w-fit h-10 p-2 pl-5 pr-5 font-bold rounded-full border-2 border-neutral-700/50 text-neutral-700 select-none shadow-[0_0_10px_#404040] hover:bg-neutral-700/20 hover:shadow-[0_0_30px_#404040] transition-all duration-700">
+                    <FontAwesomeIcon icon={faWandMagicSparkles} /> Ready to Break Boundaries
+                </div>
+                <div className="flex flex-col justify-center items-start">
+                    <span className="font-code font-black text-8xl text-neutral-700 max-sm:text-6xl">
+                        Frontend Developer
+                    </span>
+                </div>
+                <span className="font-code inline-block overflow-hidden whitespace-nowrap text-neutral-700 text-xs">
+                    <Typewriter
+                        words={[
+                            'Website and application interface development.',
+                            'Phát triển giao diện website và ứng dụng.',
+                        ]}
+                        loop
+                        cursor
+                        cursorStyle="|"
+                        cursorBlinking={false}
+                        typeSpeed={40}
+                        deleteSpeed={40}
+                    />
                 </span>
-                <span className="title-position font-light text-sm text-slate-400">Front-end Developer</span>
-                <div className="social flex justify-center items-center gap-3">
-                    <Link
-                        href="https://www.linkedin.com/in/minh-tuan-nguyen-xuan/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div className="linkedin flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
-                            <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5 text-sky-700" />
+                <div className="flex gap-3 max-sm:flex-wrap">
+                    {mainTech.map((item) => (
+                        <div
+                            key={item.id}
+                            className="w-fit h-10 p-2 pl-5 pr-5 bg-transparent border-2 border-neutral-700 text-neutral-700 rounded-full"
+                        >
+                            {item.stack}
                         </div>
-                    </Link>
-                    <Link href="https://github.com/tuannguyen2002" target="_blank" rel="noopener noreferrer">
-                        <div className="github flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
-                            <FontAwesomeIcon icon={faGithub} className="w-5 h-5 text-black" />
+                    ))}
+                </div>
+                <div className="flex gap-3 w-2/3">
+                    {quickAction.map((item) => (
+                        <div
+                            key={item.id}
+                            onClick={() => handleScroll(item.id)}
+                            className="flex w-1/2 h-10 justify-center gap-3 items-center text-lg bg-transparent border-2 border-neutral-700 text-neutral-700 lg:font-semibold isolation-auto shadow-[0_0_10px_#404040] hover:shadow-[0_0_30px_#404040] transition-all duration-300 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-lg before:bg-neutral-700/20 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden group select-none cursor-pointer"
+                        >
+                            {item.action}
+                            <FontAwesomeIcon
+                                icon={item.icon}
+                                className="w-4 h-4 transition-all duration-500 ease-in-out group-hover:translate-x-2"
+                            />
                         </div>
-                    </Link>
-                    <Link href="https://zalo.me/0359146876" target="_blank" rel="noopener noreferrer">
-                        <div className="zalo flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
-                            <FontAwesomeIcon icon={faZ} className="w-5 h-5 text-cyan-500" />
-                        </div>
-                    </Link>
-                    <Link href="https://t.me/nx_minhtuan" target="_blank" rel="noopener noreferrer">
-                        <div className="telegram flex justify-center items-center w-10 h-10 cursor-pointer bg-slate-200 rounded-lg hover:bg-slate-300 transition duration-300 dark:bg-neutral-600">
-                            <FontAwesomeIcon icon={faTelegram} className="w-5 h-5 text-sky-600" />
-                        </div>
-                    </Link>
+                    ))}
                 </div>
-            </div>
-            <div className="block-page-left-bottom h-1/2 flex flex-col gap-3 p-5 bg-slate-100 rounded-lg dark:bg-neutral-600">
-                <div className="block-page-left-bottom-1 flex items-center gap-3 h-1/4 border-b border-slate-200">
-                    <FontAwesomeIcon icon={faMobileScreen} className="w-5 h-5 text-teal-400" />
-                    <div className="block-page-left-bottom-1-1 flex flex-col gap-1">
-                        <span className="title font-light text-xs text-slate-400">Phone</span>
-                        <span className="content font-bold text-gray-700 dark:text-gray-300">0359146876</span>
-                    </div>
-                </div>
-                <div className="block-page-left-bottom-2 flex items-center gap-3 h-1/4 border-b border-slate-200">
-                    <FontAwesomeIcon icon={faEnvelopeOpen} className="w-5 h-5 text-cyan-400" />
-                    <div className="block-page-left-bottom-1-2 flex flex-col gap-1">
-                        <span className="title font-light text-xs text-slate-400">Email</span>
-                        <span className="content font-bold text-gray-700 dark:text-gray-300">
-                            nxmtuan.2002@gmail.com
-                        </span>
-                    </div>
-                </div>
-                <div className="block-page-left-bottom-3 flex items-center gap-3 h-1/4 border-b border-slate-200">
-                    <FontAwesomeIcon icon={faLocationDot} className="w-5 h-5 text-blue-500" />
-                    <div className="block-page-left-bottom-1-3 flex flex-col gap-1">
-                        <span className="title font-light text-xs text-slate-400">Address</span>
-                        <span className="content font-bold text-gray-700 dark:text-gray-300">Phuc Yen, Vinh Phuc</span>
-                    </div>
-                </div>
-                <div className="block-page-left-bottom-4 flex justify-center items-end h-1/4">
-                    <a
-                        className="block-page-left-bottom-1-4 flex justify-center items-center gap-3 h-3/4 w-4/5 rounded-full cursor-pointer bg-gradient-to-r from-teal-400 to-blue-500 max-sm:h-10"
-                        href="/downloads/[CV]Minh_Tuan-Frontend-navt.pdf"
-                        download
-                    >
-                        <FontAwesomeIcon icon={faDownload} className="w-5 h-5 text-white" />
-                        <span className="download-btn text-white">Download CV</span>
-                    </a>
+                <div className="flex gap-3">
+                    {quickContact.map((item) => (
+                        <Link
+                            key={item.id}
+                            href={item.link}
+                            className="flex justify-center items-center w-10 h-10 bg-transparent border-2 border-neutral-700 text-neutral-700 shadow-[0_0_10px_#404040] hover:shadow-[0_0_30px_#404040] transition-all duration-300"
+                        >
+                            <FontAwesomeIcon icon={item.icon} className="w-5 h-5" />
+                        </Link>
+                    ))}
                 </div>
             </div>
         </div>

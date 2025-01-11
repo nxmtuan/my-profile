@@ -1,0 +1,36 @@
+/* styles.css */
+.parallax {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px; /* Chiều cao có thể thay đổi tùy ý */
+}
+
+.scroller {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các icon */
+}
+
+.tech-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-stack img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease; /* Thêm hiệu ứng khi hover */
+}
+
+.tech-stack p {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tech-stack:hover img {
+    transform: scale(1.2); /* Tăng kích thước icon khi hover */
+}

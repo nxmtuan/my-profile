@@ -1,32 +1,64 @@
-import Skill2 from '@/components/sections/SkillsSections/Skill2';
-import Skill1 from '@/components/sections/SkillsSections/Skill1';
-import Skill3 from '@/components/sections/SkillsSections/Skill3';
+'use client';
+import { faCubes } from '@fortawesome/free-solid-svg-icons';
+import { useRef } from 'react';
+import Slide from '@/components/sections/SkillsSections/Slide';
+import { useScroll } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TechStackIcon } from '../sections/SkillsSections/TeckStackIcon';
+
+const techStacks = [
+    { icon: 'html.svg', language: 'HTML' },
+    { icon: 'css.svg', language: 'CSS' },
+    { icon: 'js.svg', language: 'JavaScript' },
+    { icon: 'typescript.svg', language: 'TypeScript' },
+    { icon: 'c.svg', language: 'C#' },
+    { icon: 'java.svg', language: 'Java' },
+    { icon: 'react.svg', language: 'ReactJS' },
+    { icon: 'next.svg', language: 'NextJS' },
+    { icon: 'postgresql.svg', language: 'PostgreSQL' },
+    { icon: 'nodejs.svg', language: 'Node JS' },
+    { icon: 'tailwindcss.svg', language: 'Tailwind CSS' },
+    { icon: 'bootstrap.svg', language: 'Bootstrap' },
+    { icon: 'vercel.svg', language: 'Vercel' },
+    { icon: 'git.svg', language: 'Git' },
+];
 
 export default function Skills() {
+    const container = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
     return (
-        <div id="skills" className="skills-wrapper flex w-auto justify-center items-center max-sm:ml-3 max-sm:mr-3">
-            <div className="container flex h-screen justify-center items-center max-sm:h-fit">
-                <div className="skills-block flex justify-center w-full h-5/6 gap-5 max-sm:flex-col">
-                    <div className="flex flex-col gap-5 w-1/4 max-sm:w-full">
-                        <div className="flex w-full h-1/6 font-bold text-3xl text-gray-700 bg-white rounded-xl p-7 items-center justify-center select-none 2xl:text-4xl dark:bg-neutral-700 dark:text-gray-300">
-                            MY SKILLS
-                        </div>
-                        <Skill1 />
-                    </div>
-                    <div className="flex flex-col gap-5 w-3/4 h-full max-sm:w-full">
-                        <div className="flex gap-5 h-1/2">
-                            <Skill2 />
-                            <div className="w-1/2 h-full 2xl:text-xl bg-white rounded-xl p-10 hover:shadow-2xl transition duration-500 max-sm:hidden dark:bg-neutral-700 dark:text-gray-300">
-                                These skills I have learned over four years of university and several months of
-                                internships at companies. To provide the best user experience, I constantly update
-                                myself with knowledge of new technologies and utilize tools that support interface
-                                design and effects creation, such as Bootstrap or Tailwind CSS, as well as tools for
-                                creating stunning animations using GSAP. These are tools I genuinely enjoy and find
-                                incredibly helpful in my work.
-                            </div>
-                        </div>
-                        <Skill3 />
-                    </div>
+        <div
+            id="showcase"
+            className="skills-wrapper bg-[#e9e9e9] flex w-auto justify-center items-center select-none my-20 max-sm:mt-10 max-sm:mb-10"
+        >
+            <div className="container flex flex-col gap-10 h-fit justify-center items-center max-sm:h-fit">
+                <div className="group flex justify-center items-center gap-5 h-28 p-2 pl-5 pr-5 max-sm:w-full">
+                    <FontAwesomeIcon
+                        icon={faCubes}
+                        className="w-16 h-16 group-hover:scale-125 transition duration-300"
+                    />
+                    <span className="font-code font-bold text-5xl group-hover:translate-x-3 transition duration-300 max-sm:text-4xl">
+                        Tech Sracks
+                    </span>
+                </div>
+                <div className="flex flex-col gap-7 max-md:hidden">
+                    <Slide items={techStacks.slice(0, 7)} direction={'left'} left={'-10%'} progress={scrollYProgress} />
+                    <Slide
+                        items={techStacks.slice(7, 14)}
+                        direction={'right'}
+                        left={'25%'}
+                        progress={scrollYProgress}
+                    />
+                </div>
+
+                <div className="max-xl:grid max-xl:grid-cols-2 gap-7 xl:hidden">
+                    {techStacks.map((item, index) => (
+                        <TechStackIcon key={index} icon={item.icon} language={item.language} />
+                    ))}
                 </div>
             </div>
         </div>
