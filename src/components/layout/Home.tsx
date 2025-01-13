@@ -13,7 +13,7 @@ export default function Home() {
     };
 
     return (
-        <section id="home" className="flex justify-center items-center h-screen">
+        <section id="home" className="flex justify-center items-center h-screen max-sm:h-fit max-sm:my-10">
             <div className="container h-5/6 mt-auto mb-10 max-sm:mb-0">
                 <div className=" flex justify-center items-center gap-5">
                     <div className="w-3/5 h-full max-sm:w-full max-sm:flex max-sm:justify-center max-sm:items-center">

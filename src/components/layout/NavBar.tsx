@@ -53,7 +53,7 @@ export default function NavBar() {
     }, []);
 
     return (
-        <div className="navBar fixed top-0 left-0 right-0 flex gap-3 justify-end items-center h-14 w-full p-5 pr-20 z-50 select-none max-sm:w-full max-sm:flex-row max-sm:pr-0 max-sm:justify-center">
+        <header className="navBar fixed top-0 left-0 right-0 flex gap-3 justify-end items-center h-14 w-full p-5 pr-20 z-50 select-none max-sm:w-full max-sm:flex-row max-sm:pr-0 max-sm:justify-center">
             <div className="author flex absolute left-20 gap-2 h-7 max-sm:hidden">
                 <span className="font-playwrite text-primaryColor">Nguyen Tuan</span>
             </div>
@@ -74,6 +74,6 @@ export default function NavBar() {
                     </div>
                 </div>
             ))}
-        </div>
+        </header>
     );
 }

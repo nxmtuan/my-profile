@@ -3,6 +3,7 @@ import { faLinkedinIn, faTelegram, faGithub } from '@fortawesome/free-brands-svg
 import { faLink, faZ } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import FloatElement from '@/components/ElementAnimation/FloatElement';
 
 const socialLink = [
     {
@@ -57,16 +58,18 @@ export default function SocialLink() {
                         rel="noopener noreferrer"
                         className="flex w-full gap-10 items-center"
                     >
-                        <div className="flex justify-center items-center w-20 h-20 rounded-full p-2 border-2 border-white group-hover:text-[#404040] group-hover:border-[#404040] hover:transition-all duration-300">
-                            <FontAwesomeIcon icon={item.icon} className="w-10 h-10" />
-                        </div>
-                        <div className="flex flex-col gap-2 items-start group-hover:text-[#404040] hover:transition-all duration-300">
-                            <span className="text-3xl font-bold">{item.title}</span>
-                            <span className="text-base font-light">{item.subTitle}</span>
-                        </div>
-                        <div className="ml-auto w-10 h-10 p-2 rounded-full group-hover:border-2 group-hover:text-[#404040] hover:border-[#404040] hover:transition-all duration-300">
-                            <FontAwesomeIcon icon={faLink} />
-                        </div>
+                        <FloatElement duration={2} className="flex w-full gap-10 items-center">
+                            <div className="flex justify-center items-center w-20 h-20 rounded-full p-2 border-2 border-white group-hover:text-[#404040] group-hover:border-[#404040] hover:transition-all duration-300 max-sm:w-10 max-sm:h-10">
+                                <FontAwesomeIcon icon={item.icon} className="w-10 h-10 max-sm:w-5 max-sm:h-5" />
+                            </div>
+                            <div className="flex flex-col gap-2 items-start group-hover:text-[#404040] hover:transition-all duration-300">
+                                <span className="text-3xl font-bold">{item.title}</span>
+                                <span className="text-base font-light">{item.subTitle}</span>
+                            </div>
+                            <div className="ml-auto w-10 h-10 p-2 rounded-full group-hover:border-2 group-hover:text-[#404040] hover:border-[#404040] hover:transition-all duration-300">
+                                <FontAwesomeIcon icon={faLink} />
+                            </div>
+                        </FloatElement>
                     </Link>
                 </motion.div>
             ))}

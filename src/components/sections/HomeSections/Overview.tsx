@@ -5,6 +5,7 @@ import { faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { useCallback } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
+import FloatElement from '@/components/ElementAnimation/FloatElement';
 
 const mainTech = [
     { id: 1, stack: 'React' },
@@ -44,10 +45,10 @@ export default function Overview() {
                 </div>
                 <div className="flex flex-col justify-center items-start">
                     <span className="font-code font-black text-8xl text-neutral-700 max-sm:text-6xl">
-                        Frontend Developer
+                        <FloatElement duration={2}>Frontend Developer</FloatElement>
                     </span>
                 </div>
-                <span className="font-code inline-block overflow-hidden whitespace-nowrap text-neutral-700 text-xs">
+                <span className="font-code inline-block overflow-hidden whitespace-nowrap text-base text-neutral-700 max-sm:text-xs">
                     <Typewriter
                         words={[
                             'Website and application interface development.',

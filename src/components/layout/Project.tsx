@@ -5,6 +5,7 @@ import React, { useState, MouseEvent, useRef } from 'react';
 import './layout.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import FloatElement from '../ElementAnimation/FloatElement';
 
 interface ImageItem {
     id: number;
@@ -112,23 +113,25 @@ export default function Project() {
                         onMouseEnter={() => handleImageInteraction(item, 1)}
                         onMouseMove={() => handleImageInteraction(item, 1)}
                         onMouseLeave={() => handleImageInteraction(item, 0)}
-                        className="w-full py-10 p-10 pl-52 cursor-pointer flex justify-start gap-5 text-white/50 font-code z-[2] hover:text-white hover:translate-x-10 transition-all duration-500 max-sm:px-4 max-sm:py-5"
+                        className="w-full py-10 p-10 pl-52 cursor-pointer flex justify-start gap-5 text-white/50 font-code z-[2] hover:text-white hover:translate-x-10 transition-all duration-500 overflow-hidden max-sm:px-4 max-sm:py-5 max-sm:hover:translate-x-2"
                     >
-                        <span className="text-xl font-medium">{item.id}</span>
-                        <div className="flex flex-col gap-2">
-                            <span className="text-8xl font-black max-sm:text-4xl">{item.label}</span>
-                            <div className="flex gap-2 items-center">
-                                <span className="text-base font-light">{item.subLabel}</span> /
-                                <Link
-                                    href={item.link}
-                                    className="text-xl font-bold hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {item.demo}
-                                </Link>
+                        <FloatElement duration={2}>
+                            <span className="text-xl font-medium">{item.id}</span>
+                            <div className="flex flex-col gap-2">
+                                <span className="text-8xl font-black max-sm:text-4xl">{item.label}</span>
+                                <div className="flex gap-2 items-center">
+                                    <span className="text-base font-light">{item.subLabel}</span> /
+                                    <Link
+                                        href={item.link}
+                                        className="text-xl font-bold hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {item.demo}
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
+                        </FloatElement>
                     </div>
                 ))}
 
