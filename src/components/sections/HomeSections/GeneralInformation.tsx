@@ -23,7 +23,7 @@ export default function GeneralInformation() {
         {
             icon: faAward,
             label: 'CERTIFICATES',
-            total: 1,
+            total: 2,
             subLabel: 'Skills have been validated',
         },
         {

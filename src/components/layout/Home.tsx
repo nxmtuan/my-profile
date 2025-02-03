@@ -30,7 +30,7 @@ export default function Home() {
                             </p>
                             <div className="flex gap-5 w-2/3 max-sm:flex-col max-sm:w-full max-sm:items-center">
                                 <a
-                                    href="/downloads/[CV]-NguyenTuan-Frontend-en.pdf"
+                                    href="/downloads/[CV]-Frontend-nxmTuan-en.pdf"
                                     download
                                     className="group relative cursor-pointer p-2 w-1/2 border bg-transparent overflow-hidden text-white text-center font-semibold shadow-[0_0_10px_#ffffff] hover:shadow-[0_0_30px_#ffffff] transition-all duration-300"
                                 >
